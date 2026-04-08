@@ -55,7 +55,27 @@ copySync(join(ICONS_SRC, 'folders'), join(ICONS_DEST, 'folders'), {
   overwrite: true
 })
 
+normalizeSvgDimensions(join(ICONS_DEST, 'files'))
+normalizeSvgDimensions(join(ICONS_DEST, 'folders'))
+
 console.log('SVGs copied successfully!')
+
+function normalizeSvgDimensions(dir: string): void {
+  for (const entry of Deno.readDirSync(dir)) {
+    if (!entry.isFile || !entry.name.endsWith('.svg')) continue
+
+    const filePath = join(dir, entry.name)
+    const content = Deno.readTextFileSync(filePath)
+
+    const normalized = content
+      .replace(/\swidth="[^"]*"/i, ' width="16"')
+      .replace(/\sheight="[^"]*"/i, ' height="16"')
+
+    if (normalized !== content) {
+      Deno.writeTextFileSync(filePath, normalized)
+    }
+  }
+}
 
 function toKtFieldName(name: string): string {
   // "angular-component" → "angular_component"
