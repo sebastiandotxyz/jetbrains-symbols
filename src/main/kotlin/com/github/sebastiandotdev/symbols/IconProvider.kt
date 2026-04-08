@@ -3,8 +3,6 @@ package com.github.sebastiandotdev.symbols
 import com.intellij.ide.IconProvider
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.PsiElement
-import com.intellij.psi.PsiFile
-import com.intellij.psi.PsiManager
 import com.intellij.psi.util.PsiUtilCore
 import javax.swing.Icon
 
@@ -13,23 +11,19 @@ class IconProvider : IconProvider() {
   override fun getIcon(element: PsiElement, flags: Int): Icon? {
     val virtualFile = PsiUtilCore.getVirtualFile(element)
     
-    val file = virtualFile?.let {
-      PsiManager.getInstance(element.project).findFile(it)
-    }
-    
-    return findIcon(virtualFile, file)
+    return findIcon(virtualFile)
   }
   
-  private fun findIcon(virtualFile: VirtualFile?, file: PsiFile?): Icon? {
+  private fun findIcon(virtualFile: VirtualFile?): Icon? {
     return when {
       virtualFile?.isDirectory == true -> Icons.FOLDER_TO_ICON[virtualFile.name.lowercase()]
         ?: Icons.folder
       
-      else -> findFileIcon(virtualFile, file)
+      else -> findFileIcon(virtualFile)
     }
   }
   
-  private fun findFileIcon(virtualFile: VirtualFile?, file: PsiFile?): Icon? {
+  private fun findFileIcon(virtualFile: VirtualFile?): Icon? {
     val fileName = virtualFile?.name?.lowercase()
     
     return Icons.FILE_TO_ICON[fileName]
