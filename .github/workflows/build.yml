@@ -42,6 +42,8 @@ jobs:
       # Check out the current repository
       - name: Fetch Sources
         uses: actions/checkout@v6
+        with:
+          submodules: recursive
 
       # Set up the Java environment for the next steps
       - name: Setup Java
@@ -49,6 +51,23 @@ jobs:
         with:
           distribution: zulu
           java-version: 21
+
+      # Set up Deno for icon generation
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      # Regenerate icon assets and mappings
+      - name: Generate Icons
+        run: deno task build
+
+      # Fail fast if generated files were not committed
+      - name: Verify Generated Icons Are Committed
+        run: |
+          git --no-pager diff --exit-code -- \
+            src/main/kotlin/com/github/sebastiandotdev/symbols/Icons.kt \
+            src/main/resources/symbols/icons
 
       # Setup Gradle
       - name: Setup Gradle
