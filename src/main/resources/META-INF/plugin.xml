@@ -1,15 +1,24 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.sebastiandotdev.symbols</id>
-    <name>symbols</name>
-    <vendor>sebastiandotdev</vendor>
-
-    <depends>com.intellij.modules.platform</depends>
-
-    <resource-bundle>messages.MyBundle</resource-bundle>
-
-    <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.sebastiandotdev.symbols.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-        <postStartupActivity implementation="com.github.sebastiandotdev.symbols.startup.MyProjectActivity" />
-    </extensions>
+  <id>com.github.sebastiandotdev.symbols</id>
+  <name>Symbols Icons</name>
+  
+  <description><![CDATA[
+        <h2>Symbols for JetBrains</h2>
+        <p>A simple file icon theme for JetBrains IDEs, based on
+        <a href="https://github.com/miguelsolorio/vscode-symbols">vscode-symbols</a>
+        by Miguel Solorio.</p>
+        <p>Minimal, clean icons for your project tree.</p>
+    ]]></description>
+  
+  <vendor url="https://github.com/sebastiandotdev">sebastiandotdev</vendor>
+  
+  <depends>com.intellij.modules.platform</depends>
+  <extensions defaultExtensionNs="com.intellij">
+    <iconProvider
+            implementation="com.github.sebastiandotdev.symbols.IconProvider"
+            order="first"
+            id="SymbolsIconProvider"
+    />
+  </extensions>
 </idea-plugin>
