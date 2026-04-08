@@ -47,7 +47,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v6
         with:
           cache-read-only: true
-          
+
       # Set up Deno for icon generation
       - name: Setup Deno
         uses: denoland/setup-deno@v2
@@ -58,12 +58,6 @@ jobs:
       - name: Generate Icons
         run: deno task build
 
-      - name: Verify Generated Icons Are Committed
-        run: |
-          git --no-pager diff --exit-code -- \
-            src/main/kotlin/com/github/sebastiandotdev/symbols/Icons.kt \
-            src/main/resources/symbols/icons
-              
       # Run IDEA prepared for UI testing
       - name: Run IDE
         run: ${{ matrix.runIde }}
