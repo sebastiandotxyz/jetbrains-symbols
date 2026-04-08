@@ -30,10 +30,11 @@ jobs:
             runIde: ./gradlew runIdeForUiTests &
 
     steps:
-
       # Check out the current repository
       - name: Fetch Sources
         uses: actions/checkout@v6
+        with:
+          submodules: recursive
 
       # Set up the Java environment for the next steps
       - name: Setup Java
