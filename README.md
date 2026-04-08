@@ -1,8 +1,8 @@
 # Symbols Icons for JetBrains
 
-![Build](https://github.com/sebastiandotdev/symbols/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/MARKETPLACE_ID.svg)](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/MARKETPLACE_ID.svg)](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID)
+![Build](https://github.com/sebastiandotdev/jetbrains-symbols/workflows/Build/badge.svg)
+[![Version](https://img.shields.io/jetbrains/plugin/v/31168.svg)](https://plugins.jetbrains.com/plugin/31168-symbols-icons)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/31168.svg)](https://plugins.jetbrains.com/plugin/31168-symbols-icons)
 
 <!-- Plugin description -->
 <p>A minimal file and folder icon theme for JetBrains IDEs.</p>
@@ -11,12 +11,20 @@
 
 ## Preview
 
-Preview image coming soon.
+<p align="center">
+	<img src="./preview.png"/>
+</p>
 
 ## Installation
 
-- From JetBrains Marketplace: search for <strong>Symbols Icons</strong> and install.
-- From disk: download the latest `.zip` from GitHub Releases and use <kbd>Install plugin from disk...</kbd>.
+### Plugin Marketplace
+
+1. Head to the [Plugin Marketplace](https://plugins.jetbrains.com/plugin/31168-symbols-icons/reviews) (Settings > Plugins > Marketplace)
+2. Search for "Symbols Icons"
+3. Install Plugin
+
+### Manual
+Download the latest release and import it with Settings > Plugins > ⚙️ > Install plugin from disk....
 
 ## Development
 
