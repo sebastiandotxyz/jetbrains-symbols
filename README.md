@@ -12,7 +12,7 @@
 ## Preview
 
 <p align="center">
-	<img src="./preview.png" />
+	<img width="1046" height="889" alt="image" src="https://github.com/user-attachments/assets/dff41558-c06d-4f6e-a0e0-a463af9fb924" />
 </p>
 
 ## Installation
